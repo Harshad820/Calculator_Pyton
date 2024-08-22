@@ -1,0 +1,100 @@
+import tkinter as t
+
+from tkinter import StringVar
+
+
+
+def 
+calculate():
+    
+number1 = int(take.get())
+   
+ number2 = int(take1.get())
+    
+operation = operation_var.get()
+
+   
+ if operation == "ADDITION":
+      
+  result = number1 + number2
+    
+elif operation == "SUBSTRACTION":
+     
+   result = number1 - number2
+   
+ elif operation == "MULTIPICATION":
+       
+ result = number1 * number2
+    
+elif operation == "DIVISION":
+     
+   if number2 != 0:
+          
+  result = number1 / number2
+     
+   else:
+            result = "Error: Division by zero"
+  
+  else:
+        result = "Invalid operation"
+
+  
+  label4.config(text="RESULT: "+str(result))
+    
+display=t.Tk()
+
+display.geometry("500x500")
+
+display.title("**CALCULATOR**")
+
+label =t.Label(display,text="CALCULATOR",font=(30))
+
+label.pack( padx=20,pady=20)
+
+
+label2=t.Label(display,text="ENTER FIRST NUMBER :",font=(20))
+
+label2.pack()
+
+take=t.Entry(display,width=30)
+
+take.pack(pady=20)
+
+
+
+
+label3=t.Label(display,text="ENTER SECONT NUMBER :",font=(20))
+
+label3.pack()
+
+take1=t.Entry(display,width=30)
+
+take1.pack()
+
+
+operations = ["ADDITION", "SUBSTRACTION", "MULTIPICATION", "DIVISION"]
+
+operation_var = StringVar(display)
+
+operation_var.set("ADDITION")
+
+
+operation_menu = t.OptionMenu(display, operation_var, *operations)
+
+operation_menu.pack(pady=10,padx=20)
+
+
+
+button = t.Button(display, text="Calculate", command=calculate)
+
+button.pack(pady=10)
+
+
+
+label4= t.Label(display, text="RESULT: ",font=(20))
+
+label4.pack()
+
+
+
+display.mainloop()
